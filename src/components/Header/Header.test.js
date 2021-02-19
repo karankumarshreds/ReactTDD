@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Header from './Header';
+import { findByTestAttr } from '../../../utils';
 
+// targetting the component to test
 const setup = (props = {}) => {
   const component = shallow(<Header {...props} />);
   return component;
@@ -15,12 +17,12 @@ describe('Header Component', () => {
   });
 
   it('Should render without failing', () => {
-    const headerComponent = component.find('.Header');
+    const headerComponent = findByTestAttr(component, 'Header');
     expect(headerComponent.length).toBe(1);
   });
 
   it('Should render the brandname', () => {
-    const brandName = component.find('.BrandName');
+    const brandName = findByTestAttr(component, 'BrandName');
     expect(brandName.length).toEqual(1);
   });
 });
