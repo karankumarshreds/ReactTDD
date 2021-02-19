@@ -2,10 +2,25 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Header from './Header';
 
+const setup = (props = {}) => {
+  const component = shallow(<Header {...props} />);
+  return component;
+};
+
 describe('Header Component', () => {
-  it('It should render without failing', () => {
-    const component = shallow(<Header />);
+  let component;
+  beforeEach(() => {
+    // instantiating new component for every test
+    component = setup();
+  });
+
+  it('Should render without failing', () => {
     const headerComponent = component.find('.Header');
     expect(headerComponent.length).toBe(1);
+  });
+
+  it('Should render the brandname', () => {
+    const brandName = component.find('.BrandName');
+    expect(brandName.length).toEqual(1);
   });
 });
