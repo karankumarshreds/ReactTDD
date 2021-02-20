@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchPostAction } from '../../actions/posts/postsAction';
+import { useDispatch, connect } from 'react-redux';
+import { fetchPostAction } from '../../actions/postsAction';
 
 const Button = () => {
     const dispatch = useDispatch();

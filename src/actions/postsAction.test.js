@@ -18,6 +18,7 @@ describe('Fetch posts action', () => {
             { title: 'title 2', description: 'description' },
             { title: 'title 3', description: 'description' },
         ];
+
         const store = testStore();
 
         moxios.wait(() => {
