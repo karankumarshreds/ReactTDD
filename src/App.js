@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Headline from './components/Headline/Headline';
 import Button from './components/Button/Button';
+import PostsList from './components/PostsList/PostsList';
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                     description="Random description"
                 />
                 <Button />
+                <PostsList />
             </div>
         </React.Fragment>
     );
