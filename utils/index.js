@@ -8,8 +8,8 @@ export const findByTestAttr = (component, attr) => {
     return element;
 };
 
-// create a function to create a test store
-export const testStore = (initialState) => {
+// create a function to create a fresh test store
+export const testStore = (initialState = {}) => {
     const store = createStore(reducer, initialState, applyMiddleware(thunk));
     return store;
 };

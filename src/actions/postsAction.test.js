@@ -1,12 +1,13 @@
-import moxios, { requests } from 'moxios';
+import moxios from 'moxios';
 import { testStore } from '../../utils';
-import { fetchPostAction } from '../actions/posts/postsAction';
+import { fetchPostAction } from './postsAction';
 
 describe('Fetch posts action', () => {
+    // replaces axios
     beforeEach(() => {
-        // replaces axios
         moxios.install();
     });
+    // re-install axios
     afterEach(() => {
         moxios.uninstall();
     });
