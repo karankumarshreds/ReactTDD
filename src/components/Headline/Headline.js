@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Headline = ({ title, description }) => {
     return (
-        <div className="container mt-5" data-test="Headline">
+        <div className="mt-5 mb-5" data-test="Headline">
             <h1>{title}</h1>
             <p>{description}</p>
         </div>
