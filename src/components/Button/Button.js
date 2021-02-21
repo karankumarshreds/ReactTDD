@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchPostAction } from '../../actions/postsAction';
 
 const Button = () => {

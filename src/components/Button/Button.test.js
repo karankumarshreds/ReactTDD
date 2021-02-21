@@ -1,6 +1,8 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { findByTestAttr, testStore } from '../../../utils';
+import * as redux from 'react-redux';
+// import { fetchPostAction } from '../../actions/postsAction';
 import Button from './Button';
 import { Provider } from 'react-redux';
 
@@ -30,13 +32,33 @@ const setup = (props = {}) => {
 
 describe('Button Component', () => {
     let component;
+    let spy;
+    // let mockDispatch = jest.fn();
+
     beforeEach(() => {
         component = setup();
+        // spy = jest.spyOn(redux, 'useDispatch');
+        // spy.mockReturnValue({ dispatch: mockDispatch });
     });
 
     it('Should render without failing', () => {
-        // assertions
         const buttonComponent = findByTestAttr(component, 'Button');
         expect(buttonComponent.length).toEqual(1);
+    });
+
+    it('Should dispatch action when clicked', () => {
+        // let mockAction = jest.fn();
+        // const buttonComponent = findByTestAttr(component, 'Button');
+        // jest.doMock('../../actions/postsAction', () => ({
+        //     fetchPostAction: mockAction,
+        // }));
+        // buttonComponent.simulate('click');
+        // // expect(mockDispatch).toHaveBeenCalledTimes(1);
+        // expect(mockAction).toHaveBeenCalledTimes(1);
+        const dispatchSpy = jest.spyOn(redux, 'useDispatch');
+        dispatchSpy.mockReturnValue('x');
+        const buttonComponent = findByTestAttr(component, 'Button');
+        buttonComponent.simulate('click');
+        expect(dispatchSpy).toHaveBeenCalledTimes(1);
     });
 });
